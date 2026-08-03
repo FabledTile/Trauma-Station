@@ -14,7 +14,7 @@
     - type: MobMover
     - type: HTN
       rootTask:
-        task: SimpleHostileCompound
+        task: SimpleHostileAliveOrCritCompound # was SimpleHostileCompound
       blackboard:
         NavSmash: !type:Bool
           true

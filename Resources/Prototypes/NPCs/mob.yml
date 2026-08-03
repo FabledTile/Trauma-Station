@@ -9,6 +9,18 @@
         - !type:HTNCompoundTask
           task: IdleCompound
 
+ # <Trauma> 
+- type: htnCompound
+  id: SimpleHostileAliveOrCritCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeAliveOrCritCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+# </Trauma>
+
 - type: htnCompound
   id: RatServantTargetAttackCompound
   branches:

@@ -104,6 +104,29 @@
     - !type:TargetInLOSOrCurrentCon
       curve: !type:BoolCurve
 
+# <Trauma> So can will attack crit targets until death
+- type: utilityQuery
+  id: NearbyAliveOrCritMeleeTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetIsVisibleCon
+      curve: !type:BoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetHealthCon # so doesn't stop when crit
+      curve: !type:PresetCurve
+        preset: TargetHealth
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+# </Trauma>
+
 - type: utilityQuery
   id: NearbyColdMeleeTargets
   query:
